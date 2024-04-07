@@ -1,0 +1,12 @@
+header {
+    display: block;
+    height: 75px;
+    background-color: #444444;
+}
+footer {
+    display: block;
+}
+
+body {
+    background-color: yellow;
+}
