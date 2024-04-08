@@ -1,12 +1,72 @@
 header {
     display: block;
     height: 75px;
-    background-color: #444444;
+    background-color: #aaaaaa;
+    padding: 0%;
+    margin: 0%;
+}
+header div {
+    width: 20%;
+    float: left;
+    background-color: #bbbbbb;
+    height: 75px;
+    text-align: center;
+    border-right: 1px solid #444444 ;
+}
+header a {
+    display: contents;
+}
+header div p {
+    height: 35px;
+    margin: 20px 0px;
+    font-size: 24px;
 }
 footer {
     display: block;
 }
 
 body {
-    background-color: yellow;
+    
+    margin: 0%;
+}
+main {
+    margin: 0% 8px;
+}
+#content {
+    margin: 0;
+    min-height: 500px;
+    padding: 5%;
+}
+#books-showcase-container {
+    border: 1px solid black;
+    padding: 0px 1%;
+}
+.book-container {
+    border: 1px solid red;
+    width: 33%;
+    display: inline-block;
+    height: 300px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+.book-image-container {
+    display: block;
+    background-color: cornflowerblue;
+    height: 65%;
+}
+.book-title {
+    font-size: 22px;
+}
+.book-author {
+    text-align: center;
+    font-size: 18px
+}
+.book-container button {
+    border: 1px solid #aaaaaa;
+    border-radius: 0%;
+    padding: 5px;
+    margin: 5px;
+    font-size: 16px;
+    width: 25%;
 }
