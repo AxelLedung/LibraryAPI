@@ -9,3 +9,7 @@ https://docs.google.com/spreadsheets/d/1Cg1TFftyzOnKrdlnUJKJScC4bYMRVMpYAatLoKtd
 Trello:
 
 https://trello.com/b/MTlx0od4/bibliotek
+
+Klient applikation:
+
+https://github.com/Krimpster/LibraryClient
