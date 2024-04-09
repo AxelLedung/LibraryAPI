@@ -22,6 +22,7 @@ public class BookService{
     public ArrayList<Book> getBooksFromLoanee(String loanee) {
         return (ArrayList<Book>) repo.findByLoanee(loanee);
     }
+    public ArrayList<Book> getLoanedBooks(Boolean loaned) { return (ArrayList<Book>) repo.findByLoaned(loaned); }
 
     public Book getBook(int id){
         if(repo.existsById(id)){
@@ -30,12 +31,33 @@ public class BookService{
         return null;
     }
 
-    public void deleteBook(Book book) {
-        repo.delete(book);
+    public boolean addBook(Book book) {
+        if (book != null) {
+            repo.save(book);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean deleteBook(Integer id) {
+        if (repo.existsById(id)) {
+            repo.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     public boolean updateBook(Book book) {
         if (repo.existsById(book.getId())) {
+            repo.save(book);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateLoaned(Book book, boolean loaned){
+        if (repo.existsById(book.getId())){
+            book.setLoaned(loaned);
             repo.save(book);
             return true;
         }

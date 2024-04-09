@@ -9,4 +9,6 @@ import java.util.ArrayList;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
     ArrayList<Book> findByLoanee(String loanee);
+    ArrayList<Book> findByLoaned(Boolean loaned);
+
 }
