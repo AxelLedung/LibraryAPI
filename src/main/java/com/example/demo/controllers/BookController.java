@@ -89,12 +89,12 @@ public class BookController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Return could not be made");
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Book> addBook (String title, String author, int pagecount) {
+    @PostMapping("add")
+    public ResponseEntity<String> addBook (String title, String author, int pagecount) {
         Book book = new Book(title, author, pagecount);
         boolean success = bookService.addBook(book);
         if (success) {
-            return ResponseEntity.ok().body(book);
+            return ResponseEntity.ok().body(title + " was successfully added");
         }
         return ResponseEntity.badRequest().body(null);
     }
