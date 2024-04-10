@@ -73,7 +73,7 @@ public class Book {
         return loanee;
     }
 
-    public void setPageCount(String loanee) {
+    public void setLoanee(String loanee) {
         this.loanee = loanee;
     }
 }

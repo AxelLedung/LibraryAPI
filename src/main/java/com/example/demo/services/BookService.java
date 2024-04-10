@@ -55,9 +55,21 @@ public class BookService{
         return false;
     }
 
-    public boolean updateLoaned(Book book, boolean loaned){
+    public boolean loanBook(Book book, String loanee){
         if (repo.existsById(book.getId())){
-            book.setLoaned(loaned);
+            book.setLoaned(true);
+            book.setLoanee(loanee);
+
+            repo.save(book);
+            return true;
+        }
+        return false;
+
+    }    public boolean returnBook(Book book){
+        if (repo.existsById(book.getId())){
+            book.setLoaned(false);
+            book.setLoanee(null);
+
             repo.save(book);
             return true;
         }
