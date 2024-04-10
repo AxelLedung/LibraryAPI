@@ -90,8 +90,8 @@ public class BookController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Book> addBook (String title, String author, int pagecount, boolean loaned, String loanee) {
-        Book book = new Book(title, author, pagecount, loaned, loanee);
+    public ResponseEntity<Book> addBook (String title, String author, int pagecount) {
+        Book book = new Book(title, author, pagecount);
         boolean success = bookService.addBook(book);
         if (success) {
             return ResponseEntity.ok().body(book);
