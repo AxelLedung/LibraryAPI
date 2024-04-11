@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(FONT_FILE_NAME.woff2) format('woff2');
+}
 header {
     display: block;
     height: 75px;
@@ -35,14 +39,14 @@ main {
 #content {
     margin: 0;
     min-height: 500px;
-    padding: 5%;
+    padding: 0px 5%;
 }
 #books-showcase-container {
     border: 1px solid black;
-    padding: 0px 1%;
+    padding: 5px 1%;
 }
 .book-container {
-    border: 1px solid red;
+    border: 1px solid black;
     width: 33%;
     display: inline-block;
     height: 300px;
@@ -52,7 +56,10 @@ main {
 }
 .book-image-container {
     display: block;
-    background-color: cornflowerblue;
+    background-image: url("/assets/images/book.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     height: 65%;
 }
 .book-title {
