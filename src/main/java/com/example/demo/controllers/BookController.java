@@ -91,7 +91,7 @@ public class BookController {
 
     @PostMapping("add")
     public ResponseEntity<String> addBook (String title, String author, int pagecount) {
-        Book book = new Book(title, author, pagecount);
+        Book book = new Book(title, author, pagecount, false, null);
         boolean success = bookService.addBook(book);
         if (success) {
             return ResponseEntity.ok().body(title + " was successfully added");
@@ -99,7 +99,7 @@ public class BookController {
         return ResponseEntity.badRequest().body(null);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("delete")
     public ResponseEntity<String> deleteBook (int id) {
         boolean success = bookService.deleteBook(id);
         if(success){

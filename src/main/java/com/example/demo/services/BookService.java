@@ -32,8 +32,8 @@ public class BookService{
     }
 
     public boolean addBook(Book book) {
+        repo.save(book);
         if (book != null) {
-            repo.save(book);
             return true;
         }
         return false;

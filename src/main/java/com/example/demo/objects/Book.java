@@ -31,12 +31,6 @@ public class Book {
         this.loanee = loanee;
     }
 
-    public Book(String title, String author, int pageCount) {
-        this.title = title;
-        this.author = author;
-        this.pageCount = pageCount;
-    }
-
     public int getId() {
         return id;
     }

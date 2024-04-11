@@ -13,9 +13,9 @@ public class ApplicationConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // To all mappings.
-                        .allowedOrigins("http://localhost:8080/*") // Allow all urls, is what I write.
-                        .allowedMethods(HttpMethod.GET.name(), // Allow gets and posts.
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:8080/*")
+                        .allowedMethods(HttpMethod.GET.name(),
                                 HttpMethod.POST.name(),
                                 HttpMethod.PUT.name(),
                                 HttpMethod.DELETE.name())
