@@ -14,12 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("book/")
+@RequestMapping("/book")
 public class BookController {
     private BookService bookService;
 
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
+
     @GetMapping("")
-    public ArrayList<Book> bookArrayList() { return bookService.getAllBooks();}
+    public ResponseEntity<ArrayList<Book>> getAllBooks() {
+        return ResponseEntity.ok(bookService.getAllBooks());
+    }
 
     @GetMapping("/bookById")
     public ResponseEntity<Book> getSpecifiedBook(int id){
@@ -47,9 +53,16 @@ public class BookController {
     }
 
     @PutMapping("/updateBook")
-    public ResponseEntity<String> updateBookById ( String title, String author, int pageCount, boolean loaned, String loanee){
-        Book book = new Book(title, author, pageCount, loaned, loanee);
+    public ResponseEntity<String> updateBookById (int id, String title, String author, int pageCount, boolean loaned, String loanee){
+        Book book = bookService.getBook(id);
+        book.setTitle(title);
+        book.setAuthor(author);
+        book.setPageCount(pageCount);
+        book.setLoaned(loaned);
+        book.setLoanee(loanee);
+
         boolean success = bookService.updateBook(book);
+
         if(success){
             return ResponseEntity.status(HttpStatus.OK).body("Book was successfully updated!");
         }
@@ -57,37 +70,37 @@ public class BookController {
     }
 
     @PutMapping("/loanBook")
-    public  ResponseEntity<String> loanBook (int id, boolean loaned){
+    public  ResponseEntity<String> loanBook (int id, String loanee){
         if(!bookService.getBook(id).getLoaned()){
             Book book = bookService.getBook(id);
-            bookService.updateLoaned(book, loaned);
+            bookService.loanBook(book, loanee);
             return ResponseEntity.status(HttpStatus.OK).body("Loan was successfully made.");
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Loan could not be made");
     }
 
     @PutMapping("/returnBook")
-    public  ResponseEntity<String> returnBook (int id, boolean loaned){
+    public  ResponseEntity<String> returnBook (int id){
         if(bookService.getBook(id).getLoaned()){
             Book book = bookService.getBook(id);
-            bookService.updateLoaned(book, loaned);
+            bookService.returnBook(book);
             return ResponseEntity.status(HttpStatus.OK).body("Return was successfully made.");
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Return could not be made");
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Book> addBook (String title, String author, int pagecount, boolean loaned, String loanee) {
-        Book book = new Book(title, author, pagecount, loaned, loanee);
+    @PostMapping("add")
+    public ResponseEntity<String> addBook (String title, String author, int pagecount) {
+        Book book = new Book(title, author, pagecount);
         boolean success = bookService.addBook(book);
         if (success) {
-            return ResponseEntity.ok().body(book);
+            return ResponseEntity.ok().body(title + " was successfully added");
         }
         return ResponseEntity.badRequest().body(null);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteBook (Integer id) {
+    public ResponseEntity<String> deleteBook (int id) {
         boolean success = bookService.deleteBook(id);
         if(success){
             return ResponseEntity.status(HttpStatus.OK).body("Book was successfully removed!");
