@@ -1,6 +1,5 @@
 const bookShowcase = document.getElementById("books-showcase-container");
 
-
 function createBooksFromJsonObject(jsonObjects) {
     bookList = [];
     for (let i in jsonObjects) {
@@ -21,7 +20,7 @@ function showBooks() {
         
         let bookImageContainer = document.createElement("div");
         bookImageContainer.classList.add("book-image-container");
-        bookContainer.appendChild(bookImageContainer)
+        bookContainer.appendChild(bookImageContainer);
 
         let bookTitle = document.createElement("div")
         bookTitle.classList.add("book-title");
@@ -33,12 +32,11 @@ function showBooks() {
         bookAuthor.innerHTML = bookList[i].author;
         bookContainer.appendChild(bookAuthor);
         bookShowcase.appendChild(bookContainer);
-        
     }
 }
-
+let user = encodeURIComponent(localStorage.getItem("username"));
 let request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:8080/book/bookByLoaner?loanee=axel");
+    request.open("GET", "http://localhost:8080/book/bookByLoaner?loanee=" + user);
     request.responseType = "json";
     request.send(); 
     request.onload = function() {
@@ -47,5 +45,4 @@ let request = new XMLHttpRequest();
         console.log(request.response);
         createBooksFromJsonObject(request.response);
         showBooks();
-
-    } 
+}
