@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <title>Your books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -14,7 +17,13 @@
         <div id="content">
             <h1>Your books</h1>
             <div id="books-showcase-container">
-                
+                <div class="book-container" style="display: none;">
+                    <div class="book-image-container"></div>
+                    <div class="book-title">Lord of the Rings</div>
+                    <div class="book-author">J.R.R Tolkien</div>
+                    <button class="loan-book" style="display:inline-block">Loan book!</button>
+                    <button class="return-book" style="display: none;">Return book!</button>
+                </div>
             </div>
         </div>
     </main>

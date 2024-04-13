@@ -1,6 +1,5 @@
-@font-face {
-    font-family: 'Roboto';
-    src: url(FONT_FILE_NAME.woff2) format('woff2');
+html {
+    font-family: "Roboto", sans-serif;
 }
 header {
     display: block;
@@ -8,6 +7,10 @@ header {
     background-color: #aaaaaa;
     padding: 0%;
     margin: 0%;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 header div {
     width: 20%;
@@ -15,7 +18,7 @@ header div {
     background-color: #bbbbbb;
     height: 75px;
     text-align: center;
-    border-right: 1px solid #444444 ;
+    border-right: 1px solid #444444;
 }
 header a {
     display: contents;
@@ -24,17 +27,18 @@ header div p {
     height: 35px;
     margin: 20px 0px;
     font-size: 24px;
+    font-weight: bold;
 }
 footer {
     display: block;
 }
-
 body {
-    
     margin: 0%;
 }
 main {
-    margin: 0% 8px;
+    margin: 75px 8px;
+    position: absolute;
+    width: -webkit-fill-available;
 }
 #content {
     margin: 0;
@@ -47,7 +51,8 @@ main {
 }
 .book-container {
     border: 1px solid black;
-    width: 33%;
+    width: 32.3%;
+    margin: 0px 0.5%;
     display: inline-block;
     height: 300px;
     text-align: center;
@@ -56,7 +61,7 @@ main {
 }
 .book-image-container {
     display: block;
-    background-image: url("/assets/images/book.png");
+    background-image: url("../assets/images/book.png"), linear-gradient(#dbdf20, #e78516);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -67,7 +72,8 @@ main {
 }
 .book-author {
     text-align: center;
-    font-size: 18px
+    font-size: 18px;
+    font-style: italic;
 }
 .book-container button {
     border: 1px solid #aaaaaa;
