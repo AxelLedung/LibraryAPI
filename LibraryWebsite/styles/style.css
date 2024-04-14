@@ -83,3 +83,9 @@ main {
     font-size: 16px;
     width: 25%;
 }
+.loan-book-button {
+    cursor: pointer;
+}
+.return-book-button {
+    cursor: pointer;
+}
