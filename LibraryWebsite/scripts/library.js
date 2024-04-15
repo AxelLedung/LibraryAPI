@@ -1,4 +1,5 @@
 const bookShowcase = document.getElementById("books-showcase-container");
+const usernameContainer = document.getElementById("username-container");
 
 bookShowcase.addEventListener("click", function(event) {
     let target = event.target;
@@ -113,6 +114,7 @@ function onLoad() {
         console.log(request.response);
         createBooksFromJsonObject(request.response);
         showBooks();
+        usernameContainer.innerHTML = encodeURIComponent(localStorage.getItem("username"));
     }
 } 
 

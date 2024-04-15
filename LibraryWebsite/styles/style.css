@@ -31,13 +31,24 @@ header div p {
 }
 footer {
     display: block;
+    min-height: 150px;
+    background-color: #444444;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+}
+footer p {
+    display: block;
+}
+footer a {
+    color: white;
 }
 body {
     margin: 0%;
 }
 main {
     margin: 75px 8px;
-    position: absolute;
+    min-height: 600px;
     width: -webkit-fill-available;
 }
 #content {
@@ -45,9 +56,29 @@ main {
     min-height: 500px;
     padding: 0px 5%;
 }
+h1 {
+    display: table-caption;
+    min-width: 500px;
+}
 #books-showcase-container {
     border: 1px solid black;
     padding: 5px 1%;
+    display: inline-block;
+    width: 85%;
+    box-sizing: border-box;
+}
+aside {
+    display: inline-block;
+    width: 14%;
+    text-align: center;
+    border: 1px solid black;
+    margin-right: 1%;
+    float: inline-start;
+    box-sizing: border-box;
+    min-height: 200px;
+}
+aside form {
+    margin-top: 50px;
 }
 .book-container {
     border: 1px solid black;
