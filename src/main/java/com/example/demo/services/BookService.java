@@ -13,9 +13,6 @@ public class BookService{
     public BookService(BookRepository repository) {
         repo = repository;
     }
-    public void createBook(Book book) {
-        repo.save(book);
-    }
     public ArrayList<Book> getAllBooks() {
         return (ArrayList<Book>) repo.findAll();
     }
